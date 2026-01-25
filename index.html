@@ -1,0 +1,879 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="language" content="English, Indonesian" />
+    <link rel="alternate" hreflang="en" href="https://nexis.biz.id" />
+    <link rel="alternate" hreflang="id" href="https://nexis.biz.id/id" />
+    <link rel="alternate" hreflang="x-default" href="https://nexis.biz.id" />
+    <meta
+      name="description"
+      content="NEXIS - Professional disetiap jahitan. Elite Jersey manufacturing services - custom jersey production for teams and organizations."
+    />
+    <meta
+      name="keywords"
+      content="custom jersey, jersey manufacturing, athletic wear, professional jersey production, team uniforms, Balikpapan, Kalimantan Timur, Jersey Printing"
+    />
+    <meta name="author" content="Elite Jersey" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="NEXIS | Professional Manufacturing Service"
+    />
+    <meta
+      property="og:description"
+      content="NEXIS - Professional disetiap jahitan. Premium jersey manufacturing with precision quality."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://lh3.googleusercontent.com/aida-public/AB6AXuAflqgamGZ7z6m-f8947y71oM-kbH6z0nSF98b9jp6_taIZJG2kmMdChg1w9UVYB6n6ZXsFeZQHEjSQhsov6qjbuw_mmisRh0pgfbCEijzWvrx9qCfneCZr3a7PcreK7aBhhIFfdTwMHB_cMlhDPIBZrWNl2wimXE43XVD6bLrcjTtB7zYNUoO_dr9YkclMos5Q4vGYgI8YLKk3iborXVVPtht4TP05bzrVBFL6kSRk5a985pTIW_vB4p84MHRXo9FVCJaAtibrTMM"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="NEXIS | Professional Manufacturing Service"
+    />
+    <meta
+      name="twitter:description"
+      content="NEXIS - Professional disetiap jahitan. Premium jersey manufacturing services."
+    />
+    <title>NEXIS | Professional Manufacturing Service</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#111827",
+              "accent-gold": "#C5A059",
+              "background-light": "#ffffff",
+              "background-dark": "#0a0a0a",
+              "soft-gray": "#F9FAFB",
+            },
+            fontFamily: {
+              display: ["Work Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0px",
+              lg: "0.125rem",
+              xl: "0.25rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      body {
+        font-family: "Work Sans", sans-serif;
+        @apply bg-background-light text-[#111318] antialiased;
+      }
+      .section-title {
+        @apply text-3xl md:text-5xl font-light tracking-tight;
+      }
+      .accent-label {
+        @apply text-accent-gold font-semibold tracking-[0.25em] text-[10px] uppercase;
+      }
+    </style>
+  </head>
+  <body class="dark:bg-background-dark dark:text-white">
+    <header
+      class="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-900"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <h1 class="text-xl font-extrabold tracking-[0.2em] uppercase">
+            Elite Jersey
+          </h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <div
+            class="hidden md:flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded"
+          >
+            <button
+              id="lang-en"
+              class="lang-btn px-3 py-1 text-xs font-bold uppercase rounded transition-all"
+              data-lang="en"
+            >
+              EN
+            </button>
+            <span class="text-gray-400">|</span>
+            <button
+              id="lang-id"
+              class="lang-btn px-3 py-1 text-xs font-bold uppercase rounded transition-all"
+              data-lang="id"
+            >
+              ID
+            </button>
+          </div>
+        </div>
+        <button
+          id="mobile-menu-toggle"
+          class="md:hidden flex items-center justify-center w-10 h-10 text-primary dark:text-white"
+        >
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <nav
+          id="mobile-menu"
+          class="hidden absolute top-full left-0 right-0 bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-900 md:hidden flex flex-col gap-0"
+        >
+          <a
+            class="text-xs font-bold tracking-widest uppercase hover:text-accent-gold transition-colors px-6 py-4 border-b border-gray-100 dark:border-gray-900 nav-text"
+            href="#"
+            data-en="Home"
+            data-id="Beranda"
+            >Home</a
+          >
+          <a
+            class="text-xs font-bold tracking-widest uppercase hover:text-accent-gold transition-colors px-6 py-4 border-b border-gray-100 dark:border-gray-900 nav-text"
+            href="#services"
+            data-en="Our Services"
+            data-id="Layanan Kami"
+            >Our Services</a
+          >
+          <a
+            class="text-xs font-bold tracking-widest uppercase hover:text-accent-gold transition-colors px-6 py-4 border-b border-gray-100 dark:border-gray-900 nav-text"
+            href="#craftsmanship"
+            data-en="Quality"
+            data-id="Kualitas"
+            >Quality</a
+          >
+          <a
+            class="text-xs font-bold tracking-widest uppercase hover:text-accent-gold transition-colors px-6 py-4 border-b border-gray-100 dark:border-gray-900 nav-text"
+            href="#contact"
+            data-en="Contact"
+            data-id="Kontak"
+            >Contact</a
+          >
+          <div
+            class="flex gap-2 px-6 py-4 border-b border-gray-100 dark:border-gray-900"
+          >
+            <button
+              id="lang-en-mobile"
+              class="lang-btn px-3 py-1 text-xs font-bold uppercase rounded transition-all flex-1"
+              data-lang="en"
+            >
+              EN
+            </button>
+            <button
+              id="lang-id-mobile"
+              class="lang-btn px-3 py-1 text-xs font-bold uppercase rounded transition-all flex-1"
+              data-lang="id"
+            >
+              ID
+            </button>
+          </div>
+          <a
+            class="bg-primary text-white px-6 py-4 text-[10px] font-bold tracking-widest uppercase hover:bg-black transition-all nav-text"
+            href="https://wa.me/yourphonenumber"
+            data-en="Order Custom"
+            data-id="Pesan Custom"
+            >Order Custom</a
+          >
+        </nav>
+        <nav class="hidden md:flex items-center gap-12">
+          <a
+            class="text-xs font-bold tracking-widest uppercase hover:text-accent-gold transition-colors nav-text"
+            href="#"
+            data-en="Home"
+            data-id="Beranda"
+            >Home</a
+          >
+          <a
+            class="text-xs font-bold tracking-widest uppercase hover:text-accent-gold transition-colors nav-text"
+            href="#services"
+            data-en="Our Services"
+            data-id="Layanan Kami"
+            >Our Services</a
+          >
+          <a
+            class="text-xs font-bold tracking-widest uppercase hover:text-accent-gold transition-colors nav-text"
+            href="#craftsmanship"
+            data-en="Quality"
+            data-id="Kualitas"
+            >Quality</a
+          >
+          <a
+            class="text-xs font-bold tracking-widest uppercase hover:text-accent-gold transition-colors nav-text"
+            href="#contact"
+            data-en="Contact"
+            data-id="Kontak"
+            >Contact</a
+          >
+          <a
+            class="bg-primary text-white px-6 py-2.5 text-[10px] font-bold tracking-widest uppercase hover:bg-black transition-all nav-text"
+            href="https://wa.me/yourphonenumber"
+            data-en="Order Custom"
+            data-id="Pesan Custom"
+            >Order Custom</a
+          >
+        </nav>
+      </div>
+    </header>
+    <script>
+      let currentLanguage = localStorage.getItem("language") || "en";
+
+      function switchLanguage(lang) {
+        currentLanguage = lang;
+        localStorage.setItem("language", lang);
+
+        // Update all elements with data attributes
+        document.querySelectorAll("[data-en][data-id]").forEach((element) => {
+          element.textContent = element.getAttribute(`data-${lang}`);
+        });
+
+        // Update language button styling
+        document.querySelectorAll(".lang-btn").forEach((btn) => {
+          if (btn.getAttribute("data-lang") === lang) {
+            btn.classList.add("bg-primary", "text-white");
+            btn.classList.remove("text-primary", "dark:text-white");
+          } else {
+            btn.classList.remove("bg-primary", "text-white");
+            btn.classList.add("text-primary", "dark:text-white");
+          }
+        });
+      }
+
+      // Initialize language on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        switchLanguage(currentLanguage);
+
+        // Add event listeners to language buttons
+        document.querySelectorAll(".lang-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            switchLanguage(this.getAttribute("data-lang"));
+          });
+        });
+      });
+
+      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuToggle.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    </script>
+    <main>
+      <section class="relative bg-soft-gray dark:bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+          <div class="grid lg:grid-cols-12 gap-0 min-h-[85vh] items-center">
+            <div class="lg:col-span-6 py-16 lg:py-24 z-10">
+              <div class="space-y-8">
+                <span
+                  class="accent-label nav-text"
+                  data-en="Premium Jersey Manufacturing"
+                  data-id="Manufaktur Jersey Premium"
+                  >Premium Jersey Manufacturing</span
+                >
+                <h2
+                  class="text-6xl lg:text-8xl font-light leading-none tracking-tighter text-primary dark:text-white"
+                >
+                  <span class="nav-text" data-en="Precision" data-id="Presisi"
+                    >Precision</span
+                  >
+                  <br /><span
+                    class="italic font-serif nav-text"
+                    data-en="Performance."
+                    data-id="Performa."
+                    >Performance.</span
+                  >
+                </h2>
+                <p
+                  class="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed font-light nav-text"
+                  data-en="Elevate your team's identity with our professional-grade manufacturing services. We craft high-performance athletic wear tailored to your exact specifications."
+                  data-id="Tingkatkan identitas tim Anda dengan layanan manufaktur tingkat profesional kami. Kami membuat pakaian atletik berkinerja tinggi yang disesuaikan dengan spesifikasi Anda."
+                >
+                  Elevate your team's identity with our professional-grade
+                  manufacturing services. We craft high-performance athletic
+                  wear tailored to your exact specifications.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                  <button
+                    class="bg-primary text-white px-10 py-4 font-bold text-xs tracking-[0.2em] uppercase hover:bg-black transition-all nav-text"
+                    data-en="Request Quote"
+                    data-id="Minta Penawaran"
+                  >
+                    Request Quote
+                  </button>
+                  <button
+                    class="border border-gray-300 dark:border-gray-700 px-10 py-4 font-bold text-xs tracking-[0.2em] uppercase hover:bg-white dark:hover:bg-gray-800 transition-all nav-text"
+                    data-en="View Portfolio"
+                    data-id="Lihat Katalog"
+                  >
+                    View Portfolio
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-6 h-full relative">
+              <div
+                class="h-[500px] lg:h-full w-full bg-cover bg-center"
+                style="
+                  background-image: url('./assets/images/header.jpg');
+                "
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-soft-gray via-transparent to-transparent hidden lg:block"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-32 bg-white dark:bg-background-dark" id="services">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+          <div class="text-center mb-20 space-y-4">
+            <span
+              class="accent-label nav-text"
+              data-en="Expertise"
+              data-id="Keahlian"
+              >Expertise</span
+            >
+            <h2
+              class="section-title nav-text"
+              data-en="Our Manufacturing Services"
+              data-id="Layanan Manufaktur Kami"
+            >
+              Our Manufacturing Services
+            </h2>
+            <p
+              class="text-gray-400 max-w-2xl mx-auto font-light nav-text"
+              data-en="From initial design to final production, we provide end-to-end solutions for community organizations and professional athletes."
+              data-id="Dari desain awal hingga produksi akhir, kami menyediakan solusi end-to-end untuk organisasi komunitas dan atlet profesional."
+            >
+              From initial design to final production, we provide end-to-end
+              solutions for community organizations and professional athletes.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+            <div class="relative group aspect-[4/5] overflow-hidden">
+              <div
+                class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDF4BwyKVmahr3D18AYMA4S110eHpLGnetjvx1E-OXqplJj5wUN4ycW-9uk_p5IvMAcH1XPznonpU7oWNV_FYsYcbkuusEjSHlJNsm98gDYJxNqOTANE3wt5Bk8HGyV3YZfX1u0g1AWGV83EfRPFHOdXjYfnBhT-SQlbfJf5wOchpIrBVAVUbJD87cHGqquqv9xsQ6w5MVzmbn91CGd3CYGHAPU9v0_ZBeWJUA6ATBNM_JBpRNVn2DwYSVZ5by8g9jx_f0nFvJqO3Y&quot;);
+                "
+              ></div>
+              <div
+                class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors"
+              ></div>
+              <div class="absolute bottom-10 left-10 right-10 text-white">
+                <span
+                  class="text-[10px] tracking-[0.3em] font-bold uppercase mb-2 block nav-text"
+                  data-en="Service 01"
+                  data-id="Layanan 01"
+                  >Service 01</span
+                >
+                <h4
+                  class="text-2xl font-light tracking-widest uppercase nav-text"
+                  data-en="Jersey Komunitas"
+                  data-id="Jersey Komunitas"
+                >
+                  Jersey Komunitas
+                </h4>
+                <p
+                  class="text-xs text-gray-300 mt-4 opacity-0 group-hover:opacity-100 transition-opacity leading-relaxed nav-text"
+                  data-en="Identity-focused designs for clubs, social groups, and organizations."
+                  data-id="Desain yang berfokus pada identitas untuk klub, kelompok sosial, dan organisasi."
+                >
+                  Identity-focused designs for clubs, social groups, and
+                  organizations.
+                </p>
+              </div>
+            </div>
+            <div class="relative group aspect-[4/5] overflow-hidden">
+              <div
+                class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAIzGa7FrF9_EdtddHknNDfvH0DJZQelhEgLPaGioGZzm40QaKHH4rh3DlZpuIEF2zjdGqrM18uZhPr3rtoWKlBA8WRVkKTDrGT1o17NWqmaq8fqodlq39qAdWUH0Dz0mZgo711a0qLxedqjoqBiv7-BtyUIgHbtjBCyD1couc9mJXW8fSPLyO6E2lOV9duOlKDsT87U-4xVL026yGdP2MHFtxVrPFqorQ_MSX7pZvOJGVuQaWYztppW33PgjeAQjOG8zkSVIAWqHk&quot;);
+                "
+              ></div>
+              <div
+                class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors"
+              ></div>
+              <div class="absolute bottom-10 left-10 right-10 text-white">
+                <span
+                  class="text-[10px] tracking-[0.3em] font-bold uppercase mb-2 block nav-text"
+                  data-en="Service 02"
+                  data-id="Layanan 02"
+                  >Service 02</span
+                >
+                <h4
+                  class="text-2xl font-light tracking-widest uppercase nav-text"
+                  data-en="Jersey Olahraga"
+                  data-id="Jersey Olahraga"
+                >
+                  Jersey Olahraga
+                </h4>
+                <p
+                  class="text-xs text-gray-300 mt-4 opacity-0 group-hover:opacity-100 transition-opacity leading-relaxed nav-text"
+                  data-en="High-performance fabrics optimized for intense athletic activity."
+                  data-id="Kain berkinerja tinggi yang dioptimalkan untuk aktivitas atletik yang intens."
+                >
+                  High-performance fabrics optimized for intense athletic
+                  activity.
+                </p>
+              </div>
+            </div>
+            <div class="relative group aspect-[4/5] overflow-hidden">
+              <div
+                class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuD2A-W8MvkNhxhueSUh9OkgMdBTE4PkRPbjtVsbisb2LXm0on7fzta4zvxKgYDIPjWMnXe7JcyFWW4ma_9j4U1u2vlK4xKMTQftYjJUxJx6nLjrJ_odS-UbtQA9Vhd8wrkKsem_Id7GyMHEZMnRBs4CpkfUFEI4YqlI2m5HJpNfwNXJSX35QsbbRXL2VwfXn1HC7_fWPP_jgLVUQH_yUaRlIi8IPW2W-PO1239Sn7iwegyMLPOwjOS5HMlvLbwPcVPNH25kKBQPDoQ&quot;);
+                "
+              ></div>
+              <div
+                class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors"
+              ></div>
+              <div class="absolute bottom-10 left-10 right-10 text-white">
+                <span
+                  class="text-[10px] tracking-[0.3em] font-bold uppercase mb-2 block nav-text"
+                  data-en="Service 03"
+                  data-id="Layanan 03"
+                  >Service 03</span
+                >
+                <h4
+                  class="text-2xl font-light tracking-widest uppercase nav-text"
+                  data-en="Jersey Set"
+                  data-id="Jersey Set"
+                >
+                  Jersey Set
+                </h4>
+                <p
+                  class="text-xs text-gray-300 mt-4 opacity-0 group-hover:opacity-100 transition-opacity leading-relaxed nav-text"
+                  data-en="Complete athletic uniform sets including tops, bottoms, and accessories."
+                  data-id="Satu set seragam atletik lengkap termasuk atasan, bawahan, dan aksesori."
+                >
+                  Complete athletic uniform sets including tops, bottoms, and
+                  accessories.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="py-32 bg-soft-gray dark:bg-zinc-900 overflow-hidden"
+        id="craftsmanship"
+      >
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+          <div class="grid lg:grid-cols-2 gap-20 items-center">
+            <div class="space-y-8">
+              <span
+                class="accent-label nav-text"
+                data-en="Manufacturing Quality"
+                data-id="Kualitas Manufaktur"
+                >Manufacturing Quality</span
+              >
+              <h2
+                class="section-title nav-text"
+                data-en="Fabric Innovation & Precise Construction"
+                data-id="Inovasi Kain & Konstruksi Presisi"
+              >
+                Fabric Innovation &amp; Precise Construction
+              </h2>
+              <p
+                class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-light nav-text"
+                data-en="Our manufacturing process integrates the latest textile technologies. We use moisture-wicking fibers and ergonomic stitching to ensure durability and comfort in every piece we produce."
+                data-id="Proses manufaktur kami mengintegrasikan teknologi tekstil terbaru. Kami menggunakan serat penyerap kelembaban dan jahitan ergonomis untuk memastikan daya tahan dan kenyamanan di setiap produk yang kami buat."
+              >
+                Our manufacturing process integrates the latest textile
+                technologies. We use moisture-wicking fibers and ergonomic
+                stitching to ensure durability and comfort in every piece we
+                produce.
+              </p>
+              <div class="grid grid-cols-2 gap-8 pt-6">
+                <div class="space-y-3 border-l border-gray-200 pl-6">
+                  <h5
+                    class="text-xs font-bold uppercase tracking-widest nav-text"
+                    data-en="Sublimation Art"
+                    data-id="Seni Sublimasi"
+                  >
+                    Sublimation Art
+                  </h5>
+                  <p
+                    class="text-sm text-gray-500 nav-text"
+                    data-en="Premium dye-sublimation for vibrant, permanent colors that never fade or crack."
+                    data-id="Sublimasi pewarna premium untuk warna yang cerah dan permanen yang tidak pernah pudar atau retak."
+                  >
+                    Premium dye-sublimation for vibrant, permanent colors that
+                    never fade or crack.
+                  </p>
+                </div>
+                <div class="space-y-3 border-l border-gray-200 pl-6">
+                  <h5
+                    class="text-xs font-bold uppercase tracking-widest nav-text"
+                    data-en="Tech Fabrics"
+                    data-id="Kain Teknologi"
+                  >
+                    Tech Fabrics
+                  </h5>
+                  <p
+                    class="text-sm text-gray-500 nav-text"
+                    data-en="Sourcing advanced breathable materials for maximum athletic performance."
+                    data-id="Mencari bahan yang dapat bernapas untuk kinerja atletik maksimal."
+                  >
+                    Sourcing advanced breathable materials for maximum athletic
+                    performance.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="aspect-square bg-white dark:bg-background-dark p-4 shadow-2xl"
+              >
+                <div
+                  class="w-full h-full bg-cover bg-center"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDF4BwyKVmahr3D18AYMA4S110eHpLGnetjvx1E-OXqplJj5wUN4ycW-9uk_p5IvMAcH1XPznonpU7oWNV_FYsYcbkuusEjSHlJNsm98gDYJxNqOTANE3wt5Bk8HGyV3YZfX1u0g1AWGV83EfRPFHOdXjYfnBhT-SQlbfJf5wOchpIrBVAVUbJD87cHGqquqv9xsQ6w5MVzmbn91CGd3CYGHAPU9v0_ZBeWJUA6ATBNM_JBpRNVn2DwYSVZ5by8g9jx_f0nFvJqO3Y&quot;);
+                  "
+                ></div>
+              </div>
+              <div
+                class="absolute -bottom-10 -left-10 w-48 h-48 border-[20px] border-accent-gold/10 -z-10"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-32 bg-white dark:bg-background-dark" id="contact" style="padding-top:5rem;">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+          <div class="grid lg:grid-cols-2 gap-20 items-stretch">
+            <div class="flex flex-col justify-between py-4">
+              <div class="space-y-12">
+                <div class="space-y-4">
+                  <span
+                    class="accent-label nav-text"
+                    data-en="Start Your Project"
+                    data-id="Mulai Proyek Anda"
+                    >Start Your Project</span
+                  >
+                  <h2
+                    class="section-title nav-text"
+                    data-en="Consult with Our Production Team"
+                    data-id="Konsultasi dengan Tim Produksi Kami"
+                  >
+                    Consult with Our Production Team
+                  </h2>
+                  <p
+                    class="text-gray-500 dark:text-gray-400 font-light max-w-sm nav-text"
+                    data-en="Ready to bring your designs to life? Our production specialists are available for consultation."
+                    data-id="Siap mewujudkan desain Anda? Spesialis produksi kami tersedia untuk konsultasi."
+                  >
+                    Ready to bring your designs to life? Our production
+                    specialists are available for consultation.
+                  </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                  <div class="space-y-4">
+                    <h5
+                      class="text-xs font-bold uppercase tracking-widest nav-text"
+                      data-en="Main Facility"
+                      data-id="Fasilitas Utama"
+                    >
+                      Main Facility
+                    </h5>
+                    <p class="text-sm text-gray-500 font-light leading-relaxed">
+                      Jl. Industri Garment No. 12<br />Kawasan Tekstil, Jakarta
+                    </p>
+                  </div>
+                  <div class="space-y-4">
+                    <h5
+                      class="text-xs font-bold uppercase tracking-widest nav-text"
+                      data-en="Inquiries"
+                      data-id="Pertanyaan"
+                    >
+                      Inquiries
+                    </h5>
+                    <p class="text-sm text-gray-500 font-light">
+                      production@elitejersey.com<br />+62 21 555 0198
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-12 group">
+                <a
+                  class="inline-flex items-center gap-6 bg-white dark:bg-background-dark border border-gray-100 dark:border-gray-800 p-8 hover:shadow-xl transition-all w-full max-w-md"
+                  href="https://wa.me/yourphonenumber"
+                >
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-[#25D366]/10 text-[#25D366]"
+                  >
+                    <svg
+                      class="w-8 h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <h4
+                      class="text-xs font-bold uppercase tracking-widest mb-1 nav-text"
+                      data-en="Direct Line"
+                      data-id="Jalur Langsung"
+                    >
+                      Direct Line
+                    </h4>
+                    <p
+                      class="text-sm text-gray-500 mb-0 nav-text"
+                      data-en="Message us on WhatsApp"
+                      data-id="Hubungi kami di WhatsApp"
+                    >
+                      Message us on WhatsApp
+                    </p>
+                  </div>
+                  <span
+                    class="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors"
+                    >arrow_forward_ios</span
+                  >
+                </a>
+              </div>
+            </div>
+            <div
+              class="h-[600px] w-full overflow-hidden transition-all duration-700"
+              style="z-index:1; position:relative;"
+            >
+              <div id="map" class="w-full h-full" style="z-index:2; position:relative;"></div>
+              <div
+                class="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md p-6 flex items-center justify-between z-10"
+              >
+                <div>
+                  <h5
+                    class="text-xs font-bold uppercase tracking-[0.2em] nav-text"
+                    data-en="Production Studio"
+                    data-id="Studio Produksi"
+                  >
+                    Production Studio
+                  </h5>
+                  <p
+                    class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest nav-text"
+                    data-en="Mon - Fri: 09:00 AM - 6:00 PM"
+                    data-id="Sen - Jum: 09:00 - 18:00"
+                  >
+                    Mon - Fri: 09:00 AM - 6:00 PM
+                  </p>
+                </div>
+                <button
+                  class="bg-primary text-white p-3 hover:scale-110 transition-transform"
+                >
+                  <span class="material-symbols-outlined text-sm"
+                    >directions</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-900 pt-24 pb-12"
+    >
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-20">
+          <div class="col-span-2 space-y-8">
+            <h2 class="text-lg font-bold tracking-[0.4em] uppercase">
+              Elite Jersey
+            </h2>
+            <p
+              class="text-xs text-gray-400 leading-relaxed max-w-xs uppercase tracking-widest font-light nav-text"
+              data-en="Redefining athletic apparel through precision manufacturing and premium textile selection."
+              data-id="Mendefinisikan ulang pakaian atletik melalui manufaktur presisi dan pemilihan tekstil premium."
+            >
+              Redefining athletic apparel through precision manufacturing and
+              premium textile selection.
+            </p>
+            <div class="flex gap-6">
+              <a
+                class="text-gray-400 hover:text-accent-gold transition-colors"
+                href="#"
+                ><span class="material-symbols-outlined !text-xl"
+                  >public</span
+                ></a
+              >
+              <a
+                class="text-gray-400 hover:text-accent-gold transition-colors"
+                href="#"
+                ><span class="material-symbols-outlined !text-xl"
+                  >camera</span
+                ></a
+              >
+              <a
+                class="text-gray-400 hover:text-accent-gold transition-colors"
+                href="#"
+                ><span class="material-symbols-outlined !text-xl">mail</span></a
+              >
+            </div>
+          </div>
+          <div class="space-y-6">
+            <h5
+              class="text-[10px] font-bold uppercase tracking-[0.2em] nav-text"
+              data-en="Services"
+              data-id="Layanan"
+            >
+              Services
+            </h5>
+            <ul
+              class="space-y-4 text-[10px] text-gray-400 uppercase tracking-[0.15em] font-medium"
+            >
+              <li>
+                <a
+                  class="hover:text-primary transition-colors nav-text"
+                  href="#"
+                  data-en="Community Jersey"
+                  data-id="Jersey Komunitas"
+                  >Community Jersey</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-primary transition-colors nav-text"
+                  href="#"
+                  data-en="Sports Apparel"
+                  data-id="Pakaian Olahraga"
+                  >Sports Apparel</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-primary transition-colors nav-text"
+                  href="#"
+                  data-en="Jersey Sets"
+                  data-id="Set Jersey"
+                  >Jersey Sets</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-primary transition-colors nav-text"
+                  href="#"
+                  data-en="Custom Design"
+                  data-id="Desain Kustom"
+                  >Custom Design</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-6">
+            <h5
+              class="text-[10px] font-bold uppercase tracking-[0.2em] nav-text"
+              data-en="Company"
+              data-id="Perusahaan"
+            >
+              Company
+            </h5>
+            <ul
+              class="space-y-4 text-[10px] text-gray-400 uppercase tracking-[0.15em] font-medium"
+            >
+              <li>
+                <a
+                  class="hover:text-primary transition-colors nav-text"
+                  href="#"
+                  data-en="About Us"
+                  data-id="Tentang Kami"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-primary transition-colors nav-text"
+                  href="#"
+                  data-en="Quality Control"
+                  data-id="Kontrol Kualitas"
+                  >Quality Control</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-primary transition-colors nav-text"
+                  href="#"
+                  data-en="Production"
+                  data-id="Produksi"
+                  >Production</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-primary transition-colors nav-text"
+                  href="#"
+                  data-en="Contact"
+                  data-id="Kontak"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-gray-100 dark:border-gray-900 gap-4"
+        >
+          <p
+            class="text-[9px] text-gray-400 uppercase tracking-[0.2em] nav-text"
+            data-en="© 2024 ELITE JERSEY MANUFACTURING. ALL RIGHTS RESERVED."
+            data-id="© 2024 ELITE JERSEY MANUFACTURING. SEMUA HAK DILINDUNGI."
+          >
+            © 2024 ELITE JERSEY MANUFACTURING. ALL RIGHTS RESERVED.
+          </p>
+          <div
+            class="flex gap-10 text-[9px] text-gray-400 uppercase tracking-[0.2em]"
+          >
+            <a
+              class="hover:underline nav-text"
+              href="#"
+              data-en="Privacy"
+              data-id="Privasi"
+              >Privacy</a
+            >
+            <a
+              class="hover:underline nav-text"
+              href="#"
+              data-en="Terms"
+              data-id="Syarat"
+              >Terms</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <script>
+    var map = L.map("map").setView([-6.2088, 106.8456], 13);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19,
+    }).addTo(map);
+    L.marker([-6.2088, 106.8456])
+      .addTo(map)
+      .bindPopup("<b>Elite Jersey</b><br/>Production Studio");
+  </script>
+</html>
