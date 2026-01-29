@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nexis.biz.id/sitemap.xml
