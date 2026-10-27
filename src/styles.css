@@ -1,0 +1,36 @@
+/* Source for assets/css/site.css. Rebuild with: npm run build:css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Work Sans", sans-serif;
+    @apply bg-background-light text-[#111318] antialiased;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-3xl md:text-5xl font-light tracking-tight;
+  }
+  .accent-label {
+    @apply text-accent-gold font-semibold tracking-[0.25em] text-[10px] uppercase;
+  }
+  /* Visible keyboard focus for controls added outside the original markup */
+  .focus-ring {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+  /* Floating WhatsApp button (was inline onmouseover/onmouseout handlers) */
+  .wa-float {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.2s;
+  }
+  .wa-float:hover,
+  .wa-float:focus-visible {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+}
