@@ -3,6 +3,7 @@
 
 var GA_ID = "G-CCQZWDN49P";
 var CONSENT_KEY = "analytics-consent";
+var NEXIS_LATLNG = [-1.2241, 116.9263671];
 
 function readStorage(key) {
   try {
@@ -18,29 +19,6 @@ function writeStorage(key, value) {
   } catch (e) {
     // Private mode or blocked storage: the choice just won't be remembered.
   }
-}
-
-// ── Language ──────────────────────────────────────────────────────────────
-var currentLanguage = readStorage("language") || "id";
-
-function switchLanguage(lang) {
-  currentLanguage = lang;
-  writeStorage("language", lang);
-  document.documentElement.lang = lang;
-
-  document.querySelectorAll("[data-en][data-id]").forEach(function (element) {
-    element.textContent = element.getAttribute("data-" + lang);
-  });
-
-  document.querySelectorAll(".lang-btn").forEach(function (btn) {
-    if (btn.getAttribute("data-lang") === lang) {
-      btn.classList.add("bg-primary", "text-white");
-      btn.classList.remove("text-primary", "dark:text-white");
-    } else {
-      btn.classList.remove("bg-primary", "text-white");
-      btn.classList.add("text-primary", "dark:text-white");
-    }
-  });
 }
 
 // ── Google Analytics (only after consent) ────────────────────────────────
@@ -79,56 +57,62 @@ function initConsent() {
 
 // ── Mobile menu ───────────────────────────────────────────────────────────
 function initMobileMenu() {
-  var toggle = document.getElementById("mobile-menu-toggle");
-  var menu = document.getElementById("mobile-menu");
+  var toggle = document.getElementById("menu-toggle");
+  var menu = document.getElementById("menu-mobile");
   if (!toggle || !menu) return;
 
+  function setOpen(open) {
+    menu.classList.toggle("hidden", !open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+  }
+
   toggle.addEventListener("click", function () {
-    menu.classList.toggle("hidden");
+    setOpen(menu.classList.contains("hidden"));
   });
   menu.querySelectorAll("a").forEach(function (link) {
     link.addEventListener("click", function () {
-      menu.classList.add("hidden");
+      setOpen(false);
     });
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !menu.classList.contains("hidden")) {
+      setOpen(false);
+      toggle.focus();
+    }
   });
 }
 
-// ── Map ───────────────────────────────────────────────────────────────────
+// ── Map (initialised when the contact section scrolls into view) ─────────
 function initMap() {
-  if (typeof L === "undefined" || !document.getElementById("map")) return;
-  var map = L.map("map").setView([-1.2241, 116.9263671], 16);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 19,
-  }).addTo(map);
-  L.marker([-1.2241, 116.9263671])
-    .addTo(map)
-    .bindPopup("<b>NEXIS</b><br/>NEXIS HQ");
-}
+  var el = document.getElementById("map");
+  if (!el || typeof L === "undefined") return;
 
-// ── Loading screen ────────────────────────────────────────────────────────
-function hideLoadingScreen() {
-  setTimeout(function () {
-    var loading = document.getElementById("loading-screen");
-    if (!loading) return;
-    loading.style.opacity = "0";
-    setTimeout(function () {
-      loading.style.display = "none";
-    }, 500);
-  }, 1000);
+  function build() {
+    var map = L.map(el, { scrollWheelZoom: false }).setView(NEXIS_LATLNG, 16);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19,
+    }).addTo(map);
+    L.marker(NEXIS_LATLNG).addTo(map).bindPopup("<b>NEXIS</b><br/>Bukit Batakan Permai III, Blok D15 No.09");
+  }
+
+  if (!("IntersectionObserver" in window)) return build();
+  var observer = new IntersectionObserver(
+    function (entries) {
+      if (entries[0].isIntersecting) {
+        observer.disconnect();
+        build();
+      }
+    },
+    { rootMargin: "200px" }
+  );
+  observer.observe(el);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  switchLanguage(currentLanguage);
-  document.querySelectorAll(".lang-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      switchLanguage(this.getAttribute("data-lang"));
-    });
-  });
-
   initMobileMenu();
   initConsent();
   initMap();
-  hideLoadingScreen();
 });

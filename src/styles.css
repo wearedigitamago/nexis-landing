@@ -1,4 +1,12 @@
 /* Source for assets/css/site.css. Rebuild with: npm run build:css */
+@font-face {
+  font-family: "Work Sans";
+  src: url("/assets/fonts/work-sans-latin-var.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,30 +15,62 @@
   html {
     scroll-behavior: smooth;
   }
-  body {
-    font-family: "Work Sans", sans-serif;
-    @apply bg-background-light text-[#111318] antialiased;
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
 @layer components {
-  .section-title {
-    @apply text-3xl md:text-5xl font-light tracking-tight;
+  /* Small gold uppercase label above headings, as in the "Open New" story frames */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-gold;
   }
-  .accent-label {
-    @apply text-accent-gold font-semibold tracking-[0.25em] text-[10px] uppercase;
+  .eyebrow-light {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-gold-ink;
   }
-  /* Visible keyboard focus for controls added outside the original markup */
   .focus-ring {
-    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
   }
-  /* Floating WhatsApp button (was inline onmouseover/onmouseout handlers) */
+  .bg-paper .focus-ring {
+    @apply focus-visible:outline-ink;
+  }
+  /* Process steps */
+  .step {
+    @apply grid grid-cols-[3rem_1fr] gap-4 py-5 border-b border-white/10;
+  }
+  .step-no {
+    @apply text-sm font-semibold text-gold tabular-nums pt-0.5;
+  }
+  .step-text {
+    @apply mt-1 text-sm text-mist leading-relaxed;
+  }
+  /* FAQ, native <details> so it works without JS and with the keyboard */
+  .faq {
+    @apply border-b border-ink/15;
+  }
+  .faq summary {
+    @apply flex items-center justify-between gap-6 min-h-[56px] py-4 cursor-pointer font-semibold list-none;
+  }
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq summary::after {
+    content: "+";
+    @apply text-xl font-normal text-gold-ink;
+  }
+  .faq[open] summary::after {
+    content: "\2212";
+  }
+  .faq summary:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-ink;
+  }
+  .faq p {
+    @apply pb-5 text-ash leading-relaxed;
+  }
+  /* Floating WhatsApp button (mobile only) */
   .wa-float {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: box-shadow 0.2s;
-  }
-  .wa-float:hover,
-  .wa-float:focus-visible {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
 }
