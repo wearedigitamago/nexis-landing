@@ -4,13 +4,14 @@
     "ignore": [
       "firebase.json",
       "**/.*",
+      "**/.git/**",
+      ".git/**",
       "**/node_modules/**",
       "package.json",
       "package-lock.json",
       "tailwind.config.js",
       "src/**",
-      "**/*.md",
-      "DESIGN.md"
+      "**/*.md"
     ],
     "headers": [
       {
