@@ -3,7 +3,7 @@
 
 var GA_ID = "G-CCQZWDN49P";
 var CONSENT_KEY = "analytics-consent";
-var NEXIS_LATLNG = [-1.2241, 116.9263671];
+var NEXIS_LATLNG = [-1.2189287, 116.9344658];
 
 function readStorage(key) {
   try {
